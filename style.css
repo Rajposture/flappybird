@@ -133,3 +133,16 @@ body {
     padding: 6px 14px;
   }
 }
+#high-score {
+  position: absolute;
+  top: 40px;
+  left: 1000px;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(237, 188, 188);
+  text-shadow: 1px 1px 3px rgb(255, 255, 255);
+  font-family: "Arial", sans-serif;
+  z-index: 999;
+  text-shadow: 0 0 5px rgb(228, 58, 112), 0 0 10px rgb(229, 43, 111),
+    0 0 20px rgb(243, 38, 79), 0 0 40px rgb(221, 46, 46);
+}

@@ -7,6 +7,25 @@ let velocity = 1;
 let isGameOver = false;
 let pipes = [];
 let score = 0;
+let highScore = localStorage.getItem("flappyHighScore") || 0;
+highScore = parseInt(highScore);
+
+// Display scores when game starts
+document.getElementById("score").innerText = "Score: " + score;
+document.getElementById("high-score").innerText = "High Score: " + highScore;
+
+function increaseScore() {
+  score++;
+  document.getElementById("score").innerText = "Score: " + score;
+
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("flappyHighScore", highScore);
+    document.getElementById("high-score").innerText =
+      "High Score: " + highScore;
+  }
+}
+
 let isGameStarted = false;
 
 function gameLoop() {
@@ -98,6 +117,7 @@ function endGame() {
   isGameOver = true;
   location.reload();
 }
+
 document.getElementById("start-button").addEventListener("click", () => {
   document.getElementById("start-screen").style.display = "none";
   isGameStarted = true;
