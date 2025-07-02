@@ -1,15 +1,16 @@
 const bird = document.getElementById("bird");
 const container = document.getElementById("game-container");
 
-let birdY = 200;
+let birdY = 300;
 let gravity = 1;
 let velocity = 1;
 let isGameOver = false;
 let pipes = [];
 let score = 0;
+let isGameStarted = false;
 
 function gameLoop() {
-  if (isGameOver) return;
+  if (isGameOver || !isGameStarted) return;
 
   velocity += gravity;
   birdY += velocity;
@@ -27,33 +28,51 @@ window.addEventListener("keydown", (e) => {
     velocity = -10;
   }
 });
-
+window.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    velocity = -10;
+    flapSound.play();
+  }
+});
+window.addEventListener("touchstart", () => {
+  velocity = -10;
+  flapSound.play();
+});
+document.addEventListener("keydown", function (e) {
+  if (e.code === "Space") {
+    if (!isGameStarted) {
+      isstartGame(); // Call your game start function here
+      isGameStarted = true;
+    } else {
+      flapBird(); // Optional: make bird jump when already playing
+    }
+  }
+});
+document.getElementById("startBtn").style.display = "none";
 function createPipe() {
-  const pipeGap = 170;
+  const pipeGap = 190;
   const minHeight = 50;
-  const maxHeight = window.innerHeight - pipeGap - 200;
+  const maxHeight = window.innerHeight - pipeGap - 50;
 
   let pipeTopHeight =
-    Math.floor(Math.random() * (maxHeight - minHeight)) + minHeight;
+    Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
   let pipeBottomTop = pipeTopHeight + pipeGap;
 
   const pipeTop = document.createElement("img");
-  pipeTop.src = "pipetop.png";
+  pipeTop.src = "green.jpg";
   pipeTop.className = "pipe";
-  pipeTop.style.top = "px";
+  pipeTop.style.top = "0px";
   pipeTop.style.left = window.innerWidth + "px";
   pipeTop.style.height = pipeTopHeight + "px";
   container.appendChild(pipeTop);
-  pipeTop.style.position = "absolute";
 
   const pipeBottom = document.createElement("img");
-  pipeBottom.src = "pipebottom.png";
+  pipeBottom.src = "green.jpg";
   pipeBottom.className = "pipe";
   pipeBottom.style.top = pipeBottomTop + "px";
   pipeBottom.style.left = window.innerWidth + "px";
   pipeBottom.style.height = window.innerHeight - pipeBottomTop + "px";
   container.appendChild(pipeBottom);
-  pipeBottom.style.position = "absolute";
 
   pipes.push({ top: pipeTop, bottom: pipeBottom });
 }
@@ -70,7 +89,7 @@ function movePipes() {
       pipe.bottom.remove();
       pipes.splice(index, 1);
       score++;
-      console.log("Score:", score);
+      document.getElementById("score").innerText = "Score: " + score;
     }
 
     if (
@@ -89,6 +108,9 @@ function endGame() {
   isGameOver = true;
   location.reload();
 }
-
-setInterval(createPipe, 2000);
-gameLoop();
+document.getElementById("start-button").addEventListener("click", () => {
+  document.getElementById("start-screen").style.display = "none";
+  isGameStarted = true;
+  setInterval(createPipe, 1700); // Start pipes
+  gameLoop(); // Start animation
+});

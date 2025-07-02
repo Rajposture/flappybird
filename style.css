@@ -24,9 +24,70 @@ body {
   top: 200px;
   left: 100px;
   z-index: 10;
+  background: none;
 }
 
 .pipe {
-  position: absolute;
   width: 60px;
+  position: absolute;
+  background-repeat: repeat-y;
+  background-position: top;
+  background-size: cover;
+  z-index: 2;
+}
+
+.pipe.top {
+  top: 0;
+  background-image: url("green.jpg");
+  border-top: 0;
+}
+
+.pipe.bottom {
+  background-image: url("green.jpg");
+  border-bottom: 0;
+}
+
+#score {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(255, 254, 254);
+  text-shadow: 2px 2px 4px black;
+  z-index: 999;
+  font-family: "Arial", sans-serif;
+}
+#start-screen {
+  position: absolute;
+  top: 150px;
+  left: 400px;
+  right: 100px;
+  width: 500px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: rgb(194, 201, 117);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#start-screen h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+#start-button {
+  padding: 12px 24px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: #ffd700;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
