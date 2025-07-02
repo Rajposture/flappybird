@@ -102,3 +102,34 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+@media only screen and (max-width: 768px) {
+  .start-screen {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .start-screen h1 {
+    font-size: 1.5em;
+  }
+
+  .start-screen button {
+    font-size: 0.9em;
+    padding: 8px 16px;
+  }
+
+  canvas {
+    width: 100vw !important;
+    height: auto !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .start-screen h1 {
+    font-size: 1.2em;
+  }
+
+  .start-screen button {
+    font-size: 0.85em;
+    padding: 6px 14px;
+  }
+}
