@@ -38,17 +38,7 @@ window.addEventListener("touchstart", () => {
   velocity = -10;
   flapSound.play();
 });
-document.addEventListener("keydown", function (e) {
-  if (e.code === "Space") {
-    if (!isGameStarted) {
-      isstartGame(); // Call your game start function here
-      isGameStarted = true;
-    } else {
-      flapBird(); // Optional: make bird jump when already playing
-    }
-  }
-});
-document.getElementById("startBtn").style.display = "none";
+
 function createPipe() {
   const pipeGap = 190;
   const minHeight = 50;
