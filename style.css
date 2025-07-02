@@ -53,10 +53,14 @@ body {
   left: 20px;
   font-size: 32px;
   font-weight: bold;
-  color: rgb(255, 254, 254);
+  color: rgb(242, 212, 111);
   text-shadow: 2px 2px 4px black;
   z-index: 999;
   font-family: "Arial", sans-serif;
+  padding: 20px;
+  color: white;
+  text-shadow: 0 0 5px rgb(240, 237, 54), 0 0 10px rgb(223, 238, 108),
+    0 0 20px rgb(235, 226, 59), 0 0 40px rgb(205, 234, 75);
 }
 #start-screen {
   position: absolute;
@@ -74,6 +78,13 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 20px;
+  color: white;
+  border: 2px solid rgb(0, 208, 255);
+  border-radius: 10px;
+
+  /* Neon Glow Effect */
+  box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
 }
 
 #start-screen h1 {
