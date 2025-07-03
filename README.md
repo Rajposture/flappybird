@@ -1,4 +1,4 @@
-# Flappybird link : [ (rajflappybird.netlify.app) ]
+# Flappybird link : 
 
 for code of flappy birds and releated png images 
 
