@@ -133,16 +133,62 @@ body {
     padding: 6px 14px;
   }
 }
-#high-score {
+.profile-container {
   position: absolute;
-  top: 40px;
-  left: 1000px;
-  font-size: 30px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 200px;
+  color: #333;
+}
+
+.profile-menu hr {
+  margin: 8px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+#changePicBtn {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.hud {
+  position: absolute;
+  top: 60px;
+  margin-left: 20px;
+  font-size: 32px;
   font-weight: bold;
-  color: rgb(237, 188, 188);
-  text-shadow: 1px 1px 3px rgb(255, 255, 255);
-  font-family: "Arial", sans-serif;
-  z-index: 999;
-  text-shadow: 0 0 5px rgb(228, 58, 112), 0 0 10px rgb(229, 43, 111),
-    0 0 20px rgb(243, 38, 79), 0 0 40px rgb(221, 46, 46);
+  color: rgb(242, 212, 111);
+  font-family: sans-serif;
+  padding: 20px;
+  color: white;
+  text-shadow: 0 0 5px rgb(240, 237, 54), 0 0 10px rgb(223, 238, 108),
+    0 0 20px rgb(235, 226, 59), 0 0 40px rgb(205, 234, 75);
 }

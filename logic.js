@@ -7,12 +7,6 @@ let velocity = 1;
 let isGameOver = false;
 let pipes = [];
 let score = 0;
-let highScore = localStorage.getItem("flappyHighScore") || 0;
-highScore = parseInt(highScore);
-
-// Display scores when game starts
-document.getElementById("score").innerText = "Score: " + score;
-document.getElementById("high-score").innerText = "High Score: " + highScore;
 
 function increaseScore() {
   score++;
@@ -115,6 +109,7 @@ function movePipes() {
 function endGame() {
   alert("Game Over! Score: " + score);
   isGameOver = true;
+  updateScore(score);
   location.reload();
 }
 
@@ -124,3 +119,61 @@ document.getElementById("start-button").addEventListener("click", () => {
   setInterval(createPipe, 1700); // Start pipes
   gameLoop(); // Start animation
 });
+window.onload = function () {
+  const profileImg = document.getElementById("profileImg");
+  const picInput = document.getElementById("picInput");
+  const changePicBtn = document.getElementById("changePicBtn");
+  const profileMenu = document.getElementById("profileMenu");
+  const profileToggle = document.getElementById("profileToggle");
+
+  // 1) Load or prompt for name
+  let playerName =
+    localStorage.getItem("playerName") || prompt("Enter your name:") || "Guest";
+  localStorage.setItem("playerName", playerName);
+  document.getElementById("playerName").textContent = playerName;
+
+  // 2) Load high score
+  let highScore = localStorage.getItem("highScore") || 0;
+  document.getElementById("highScore").textContent = highScore;
+
+  // 3) Load or set default profile pic
+  const storedPic = localStorage.getItem("profilePic");
+  if (storedPic) {
+    profileImg.src = storedPic;
+  }
+
+  // Toggle menu open/close
+  profileToggle.addEventListener("click", (e) => {
+    profileMenu.classList.toggle("hidden");
+    e.stopPropagation();
+  });
+  profileMenu.addEventListener("click", (e) => e.stopPropagation());
+  window.addEventListener("click", () => profileMenu.classList.add("hidden"));
+
+  // When “Change Picture” clicked, open file picker
+  changePicBtn.addEventListener("click", () => picInput.click());
+
+  // Handle new picture
+  picInput.addEventListener("change", () => {
+    const file = picInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const dataURL = e.target.result;
+      profileImg.src = dataURL;
+      localStorage.setItem("profilePic", dataURL);
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // Expose updateScore for your game logic
+  window.updateScore = function (score) {
+    if (score > highScore) {
+      highScore = score;
+      localStorage.setItem("highScore", highScore);
+      document.getElementById("highScore").textContent = highScore;
+    }
+  };
+};
+document.getElementById("highScoreDisplay").textContent = highScore;

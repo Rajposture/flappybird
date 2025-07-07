@@ -20,8 +20,29 @@
 
       <img src="bird2image-removebg-preview.png" id="bird" />
     </div>
-    <div id="score">Score: 0</div>
-    <div id="high-score">High Score: 0</div>
+    <div id="score">🎯Score: 0</div>
+    <div class="profile-container" id="profileToggle">
+      <!-- This IMG will show the user’s pic (or default) -->
+      <img src="default-avatar.png" id="profileImg" class="profile-img" />
+
+      <!-- Hidden file‑picker -->
+      <input type="file" id="picInput" accept="image/*" style="display: none" />
+
+      <!-- Dropdown -->
+      <div class="profile-menu hidden" id="profileMenu">
+        <p>
+          <strong>Name:</strong>
+          <span id="playerName">Guest</span>
+        </p>
+        <p>
+          <strong>High Score:</strong>
+          <span id="highScore">0</span>
+        </p>
+        <hr />
+        <button id="changePicBtn">Change Picture</button>
+      </div>
+    </div>
+    <div class="hud">🟡Gold: <span id="goldCounter">0</span></div>
 
     <script src="logic.js"></script>
   </body>
