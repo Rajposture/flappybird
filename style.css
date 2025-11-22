@@ -19,16 +19,16 @@ body {
 
 #bird {
   position: absolute;
-  width: 150px;
+  width: 70px;
   height: auto;
-  top: 400px;
+  top: 200px;
   left: 50px;
   z-index: 10;
   background: none;
 }
 
 .pipe {
-  width: 90px;
+  width: 50px;
   position: absolute;
   background-repeat: repeat-y;
   background-position: top;
@@ -50,8 +50,8 @@ body {
 #score {
   position: absolute;
   top: 20px;
-  left: 20px;
-  font-size: 50px;
+  left: 10px;
+  font-size: 25px;
   font-weight: bold;
   color: rgb(242, 212, 111);
   text-shadow: 2px 2px 4px black;
@@ -64,11 +64,11 @@ body {
 }
 #start-screen {
   position: absolute;
-  top: 600px;
-  left: 275px;
-  right: 250px;
-  width: 500px;
-  height: 500px;
+  top: 300px;
+  left: 55px;
+  right: 90px;
+  width: 300px;
+  height: 250px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   color: rgb(194, 201, 117);
@@ -88,7 +88,7 @@ body {
 }
 
 #start-screen h1 {
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 30px;
 }
 
@@ -138,7 +138,7 @@ body {
   backdrop-filter: blur(10px);
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 140px;
   cursor: pointer;
   z-index: 1000;
 }

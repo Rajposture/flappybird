@@ -2,8 +2,8 @@ const bird = document.getElementById("bird");
 const container = document.getElementById("game-container");
 
 let birdY = 200;
-let gravity = 1;
-let velocity = 1;
+let gravity = 0.5;
+let velocity = 3;
 let isGameOver = false;
 let pipes = [];
 let score = 0;
@@ -43,7 +43,7 @@ window.addEventListener("keydown", (e) => {
 });
 window.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
-    velocity = -20;
+    velocity = -10;
     flapSound.play();
   }
 });
@@ -53,9 +53,9 @@ window.addEventListener("touchstart", () => {
 });
 
 function createPipe() {
-  const pipeGap = 600;
-  const minHeight = 300;
-  const maxHeight = window.innerHeight - pipeGap - 100;
+  const pipeGap = 260;
+  const minHeight = 150;
+  const maxHeight = 750;
 
   let pipeTopHeight =
     Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
