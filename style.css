@@ -19,16 +19,16 @@ body {
 
 #bird {
   position: absolute;
-  width: 50px;
+  width: 150px;
   height: auto;
-  top: 200px;
-  left: 100px;
+  top: 400px;
+  left: 50px;
   z-index: 10;
   background: none;
 }
 
 .pipe {
-  width: 60px;
+  width: 90px;
   position: absolute;
   background-repeat: repeat-y;
   background-position: top;
@@ -51,7 +51,7 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 32px;
+  font-size: 50px;
   font-weight: bold;
   color: rgb(242, 212, 111);
   text-shadow: 2px 2px 4px black;
@@ -64,11 +64,11 @@ body {
 }
 #start-screen {
   position: absolute;
-  top: 150px;
-  left: 400px;
-  right: 100px;
+  top: 600px;
+  left: 275px;
+  right: 250px;
   width: 500px;
-  height: 300px;
+  height: 500px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   color: rgb(194, 201, 117);
@@ -93,7 +93,7 @@ body {
 }
 
 #start-button {
-  padding: 12px 24px;
+  padding: 15px 24px;
   font-size: 20px;
   cursor: pointer;
   border: none;
@@ -144,7 +144,7 @@ body {
 }
 
 .profile-img {
-  width: 50px;
+  width: 60px;
   height: 50px;
   border-radius: 50%;
   object-fit: cover;

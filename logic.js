@@ -43,7 +43,7 @@ window.addEventListener("keydown", (e) => {
 });
 window.addEventListener("keydown", (e) => {
   if (e.code === "Space") {
-    velocity = -10;
+    velocity = -20;
     flapSound.play();
   }
 });
@@ -53,9 +53,9 @@ window.addEventListener("touchstart", () => {
 });
 
 function createPipe() {
-  const pipeGap = 250;
-  const minHeight = 50;
-  const maxHeight = window.innerHeight - pipeGap - 50;
+  const pipeGap = 600;
+  const minHeight = 300;
+  const maxHeight = window.innerHeight - pipeGap - 100;
 
   let pipeTopHeight =
     Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
@@ -83,7 +83,7 @@ function createPipe() {
 function movePipes() {
   pipes.forEach((pipe, index) => {
     let left = parseInt(pipe.top.style.left);
-    left -= 3;
+    left -= 6;
     pipe.top.style.left = left + "px";
     pipe.bottom.style.left = left + "px";
 
@@ -96,7 +96,7 @@ function movePipes() {
     }
 
     if (
-      left < 150 &&
+      left < 100 &&
       left + 60 > 100 &&
       (birdY < parseInt(pipe.top.style.height) ||
         birdY + 40 > parseInt(pipe.bottom.style.top))
