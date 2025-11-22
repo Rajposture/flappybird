@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="bird2image-removebg-preview.png"
+    />
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="start-screen">
+        <h1>Flappy Bird</h1>
+        <button id="start-button">Start Game</button>
+      </div>
+
+      <img src="bird2image-removebg-preview.png" id="bird" />
+    </div>
+    <div id="score">🎯Score: 0</div>
+    <div class="profile-container" id="profileToggle">
+      <img src="default-avatar.png" id="profileImg" class="profile-img" />
+
+      <input type="file" id="picInput" accept="image/*" style="display: none" />
+      <div class="profile-menu hidden" id="profileMenu">
+        <p>
+          <strong>Name:</strong>
+          <span id="playerName">Guest</span>
+        </p>
+
+        <p>
+          <strong>High Score:</strong>
+          <span id="highScore">0</span>
+        </p>
+        <hr />
+        <button id="changePicBtn">Change Picture</button>
+        <button id="logoutBtn">Logout</button>
+
+        <script>
+          document
+            .getElementById("logoutBtn")
+            .addEventListener("click", function () {
+              logout();
+            });
+
+          function logout() {
+            localStorage.clear();
+            alert("You have been logged out!");
+            window.location.href = "index.html";
+          }
+        </script>
+      </div>
+    </div>
+    <div class="hud">🟡Gold: <span id="goldCounter">0</span></div>
+
+    <script src="logic.js"></script>
+  </body>
+</html>

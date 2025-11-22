@@ -1,7 +1,7 @@
 const bird = document.getElementById("bird");
 const container = document.getElementById("game-container");
 
-let birdY = 300;
+let birdY = 200;
 let gravity = 1;
 let velocity = 1;
 let isGameOver = false;
@@ -20,7 +20,7 @@ function increaseScore() {
   }
 }
 
-let isGameStarted = false;
+let isGameStarted = true;
 
 function gameLoop() {
   if (isGameOver || !isGameStarted) return;
@@ -53,7 +53,7 @@ window.addEventListener("touchstart", () => {
 });
 
 function createPipe() {
-  const pipeGap = 190;
+  const pipeGap = 250;
   const minHeight = 50;
   const maxHeight = window.innerHeight - pipeGap - 50;
 
@@ -167,7 +167,6 @@ window.onload = function () {
     reader.readAsDataURL(file);
   });
 
-  // Expose updateScore for your game logic
   window.updateScore = function (score) {
     if (score > highScore) {
       highScore = score;

@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flappy Bird</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Flappy Bird - Login</title>
+    <link rel="stylesheet" href="login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/x-icon"
@@ -12,38 +16,78 @@
     />
   </head>
   <body>
-    <div id="game-container">
-      <div id="start-screen">
-        <h1>Flappy Bird</h1>
-        <button id="start-button">Start Game</button>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="pipe pipe-left"></div>
+    <div class="pipe pipe-right"></div>
+
+    <div class="login-container">
+      <div class="score-info">HIGH<br />SCORE</div>
+
+      <h1 class="game-title">FLAPPY BIRD</h1>
+      <div class="bird-emoji">🐦</div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">E-MAIL:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">PASSWORD:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            required
+          />
+        </div>
+        <div>
+          <button type="submit" class="login-btn">START FLYING</button>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const guestBtn = document.querySelector(".login-btn");
+
+              guestBtn.addEventListener("click", function () {
+                window.location.href = "game.html";
+              });
+            });
+          </script>
+        </div>
+
+        <div class="options">
+          <a href="#">Forgot Password?</a>
+          <a href="game.html">Create Account</a>
+        </div>
+      </form>
+
+      <div class="social-login">
+        <div class="social-text">OR CONNECT WITH:</div>
+        <div class="social-buttons">
+          <button class="social-btn google-btn">Google</button>
+          <button class="social-btn facebook-btn">Facebook</button>
+        </div>
       </div>
+      <button class="guest-btn">PLAY AS GUEST</button>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const guestBtn = document.querySelector(".guest-btn");
 
-      <img src="bird2image-removebg-preview.png" id="bird" />
+          guestBtn.addEventListener("click", function () {
+            window.location.href = "game.html";
+          });
+        });
+      </script>
     </div>
-    <div id="score">🎯Score: 0</div>
-    <div class="profile-container" id="profileToggle">
-      <!-- This IMG will show the user’s pic (or default) -->
-      <img src="default-avatar.png" id="profileImg" class="profile-img" />
-
-      <!-- Hidden file‑picker -->
-      <input type="file" id="picInput" accept="image/*" style="display: none" />
-
-      <!-- Dropdown -->
-      <div class="profile-menu hidden" id="profileMenu">
-        <p>
-          <strong>Name:</strong>
-          <span id="playerName">Guest</span>
-        </p>
-        <p>
-          <strong>High Score:</strong>
-          <span id="highScore">0</span>
-        </p>
-        <hr />
-        <button id="changePicBtn">Change Picture</button>
-      </div>
-    </div>
-    <div class="hud">🟡Gold: <span id="goldCounter">0</span></div>
 
     <script src="logic.js"></script>
+    <script src="login.js"></script>
   </body>
 </html>
