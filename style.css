@@ -64,8 +64,8 @@ body {
 }
 #start-screen {
   position: absolute;
-  top: 300px;
-  left: 55px;
+  top: 350px;
+  left: 120px;
   right: 90px;
   width: 300px;
   height: 250px;
@@ -138,9 +138,10 @@ body {
   backdrop-filter: blur(10px);
   position: absolute;
   top: 20px;
-  right: 140px;
+  right: 50px;
   cursor: pointer;
   z-index: 1000;
+  background-color: transparent;
 }
 
 .profile-img {
@@ -148,7 +149,7 @@ body {
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ccc;
+  border: 2px solid #faf9f9;
 }
 
 .profile-menu {
